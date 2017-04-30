@@ -18,10 +18,10 @@ chmod-644-$(PROJECT):
 
 install-$(PROJECT): chmod-755-$(PROJECT)
 	@(for f in $(SRCS); \
-		do ln -s `pwd`/$$f $(prefix)/bin/imagemagick.$${f%.sh};  \
+		do sudo ln -s `pwd`/$$f $(prefix)/bin/imagemagick.$${f%.sh};  \
 	done)
 
 clean: chmod-644-$(PROJECT)
 	@(for f in $(SRCS); \
-		do rm $(prefix)/bin/imagemagick.$${f%.sh};  \
+		do sudo rm $(prefix)/bin/imagemagick.$${f%.sh};  \
 	done)
