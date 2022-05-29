@@ -1,6 +1,6 @@
-PROJECT = imagemagick-scripts
+PROJECT = imagemagickscripts
 
-prefix ?= /usr/local
+PREFIX ?= /usr/local
 
 SRCS = $(shell ls *.sh)
 
@@ -17,11 +17,12 @@ chmod-644-$(PROJECT):
 	done)
 
 install-$(PROJECT): chmod-755-$(PROJECT)
+	mkdir -p $(PREFIX)/bin
 	@(for f in $(SRCS); \
-		do sudo ln -s `pwd`/$$f $(prefix)/bin/imagemagick.$${f%.sh};  \
+		do  cp $$f $(PREFIX)/bin/imagemagick$${f%.sh};  \
 	done)
 
 clean: chmod-644-$(PROJECT)
 	@(for f in $(SRCS); \
-		do sudo rm $(prefix)/bin/imagemagick.$${f%.sh};  \
+		do  rm $(PREFIX)/bin/imagemagick$${f%.sh};  \
 	done)
