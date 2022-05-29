@@ -1,4 +1,4 @@
-PROJECT = imagemagickscripts
+PROJECT = imagemagick-scripts
 
 PREFIX ?= /usr/local
 
@@ -19,10 +19,10 @@ chmod-644-$(PROJECT):
 install-$(PROJECT): chmod-755-$(PROJECT)
 	mkdir -p $(PREFIX)/bin
 	@(for f in $(SRCS); \
-		do  cp $$f $(PREFIX)/bin/imagemagick$${f%.sh};  \
+		do  cp $$f $(PREFIX)/bin/imagemagick-$${f%.sh};  \
 	done)
 
 clean: chmod-644-$(PROJECT)
 	@(for f in $(SRCS); \
-		do  rm $(PREFIX)/bin/imagemagick$${f%.sh};  \
+		do  rm $(PREFIX)/bin/imagemagick-$${f%.sh};  \
 	done)
