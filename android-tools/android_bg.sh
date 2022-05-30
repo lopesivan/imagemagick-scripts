@@ -47,7 +47,7 @@ createImage()
 insertGridInImage()
 {
  	input=$1; output=$2
-	imagick.grid.sh $input $output
+	imagemagick-grid $input $output
 }
 
 insertTextInImage()
